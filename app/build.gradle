@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 22
         targetSdkVersion 30
-        versionCode 30001
-        versionName "1.0.4"
+        versionCode 30002
+        versionName "1.0.5"
 
         setProperty("archivesBaseName", "commonUtils-$versionName")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -38,11 +38,11 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.4'
-    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.4'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7'
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.3.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
 
 
 }
