@@ -1,11 +1,13 @@
-package angelandroidlibrary.viewholders
+@file:Suppress("unused")
+
+package angelandroidapps.viewholders
 
 import android.view.View
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.annotation.Keep
-import angelandroidlibrary.common.R
+import angelandroidapps.library.R
 
 
 // * Created by Angel on 11/21/2019 10:31 AM.  
@@ -24,18 +26,26 @@ open class SeekbarViewHolder(
 
     var value = min
 
-    private val tvMin: TextView = parentView.findViewById(R.id.tv_min)
-    private val tvMax: TextView = parentView.findViewById(R.id.tv_max)
-    private val tvSbTitle: TextView = parentView.findViewById(R.id.tv_sb_title)
-    private val tvValue: TextView = parentView.findViewById(R.id.tv_value)
-    private val sb: SeekBar = parentView.findViewById(R.id.sb)
-    private val iv: ImageView = parentView.findViewById(R.id.iv_sb)
+    private val tvMin: TextView
+    private val tvMax: TextView
+    private val tvSbTitle: TextView
+    private val tvValue: TextView
+    private val sb: SeekBar
+    private val iv: ImageView
 
     init {
 
         parentView.apply {
+            tvMin = findViewById(R.id.tv_min)
+            tvMax = findViewById(R.id.tv_max)
+            tvSbTitle = findViewById(R.id.tv_sb_title)
+            tvValue = findViewById(R.id.tv_value)
+            sb = findViewById(R.id.sb)
+            iv = findViewById(R.id.iv_sb)
 
 //            tvMin.setTextColor(textColor)
+//            tvMax.setTextColor(textColor)
+//            tvSbTitle.setTextColor(textColor)
 //            tvValue.setTextColor(textColor)
 
             tvMin.text = "$min"

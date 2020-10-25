@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "Angel Common Utilities"
+rootProject.name = "Angel Common Utils"

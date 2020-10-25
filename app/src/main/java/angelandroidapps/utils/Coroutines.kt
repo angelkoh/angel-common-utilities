@@ -1,4 +1,4 @@
-package angelandroidlibrary.utils
+package angelandroidapps.utils
 
 import androidx.annotation.Keep
 import kotlinx.coroutines.*
@@ -14,7 +14,7 @@ object Coroutines {
 
     //generic function
     fun <T : Any> ioThenMain(
-        work: (() -> T?),
+        work: suspend (() -> T?),
         callback: (T?) -> Unit,
         exception: ((String) -> Unit)? = null
     ): Job =
@@ -40,7 +40,7 @@ object Coroutines {
      * @return Job
      */
     fun <T : Any> ioThenMainLaunch(
-        work: (() -> T?),
+        work: suspend (() -> T?),
         exception: ((String) -> Unit)? = null
     ): Job =
         CoroutineScope(Dispatchers.Main).launch {

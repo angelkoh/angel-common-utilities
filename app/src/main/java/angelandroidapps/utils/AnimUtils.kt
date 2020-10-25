@@ -1,4 +1,5 @@
-package angelandroidlibrary.utils
+@file:Suppress("unused", "MemberVisibilityCanBePrivate")
+package angelandroidapps.utils
 
 import android.animation.*
 import android.os.Build
