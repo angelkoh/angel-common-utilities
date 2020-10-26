@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 22
         targetSdkVersion 30
-        versionCode 30002
-        versionName "1.0.5"
+        versionCode 30003
+        versionName "1.0.6"
 
         setProperty("archivesBaseName", "commonUtils-$versionName")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
