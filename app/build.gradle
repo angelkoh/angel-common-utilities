@@ -1,5 +1,12 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'maven-publish'
+}
+
+//https://jitpack.io/docs/BUILDING/
+//https://github.com/jitpack/android-example
+def vers = '1.0.7-alpha02'
 
 android {
     compileSdkVersion 33
@@ -7,8 +14,8 @@ android {
     defaultConfig {
         minSdkVersion 22
         targetSdkVersion 33
-        versionCode 33001
-        versionName "1.0.7-alpha01"
+        versionCode 33002
+        versionName vers
 
         setProperty("archivesBaseName", "commonUtils-$versionName")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -30,8 +37,28 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 }
 
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.github.angelkoh'
+            artifactId = 'angel-common-utilities'
+            version = vers
+
+            afterEvaluate {
+                from components.release
+            }
+        }
+    }
+}
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
