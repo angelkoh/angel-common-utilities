@@ -6,7 +6,7 @@ plugins {
 
 //https://jitpack.io/docs/BUILDING/
 //https://github.com/jitpack/android-example
-def vers = '1.0.7-alpha03'
+def vers = '1.0.7-alpha04'
 
 android {
     compileSdkVersion 33
@@ -39,12 +39,6 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-            withJavadocJar()
-        }
-    }
 }
 
 
