@@ -14,7 +14,7 @@ object Coroutines {
 
     //generic function
     fun <T : Any> ioThenMain(
-        work: (() -> T?),
+        work: suspend (() -> T?),
         callback: (T?) -> Unit,
         exception: ((String) -> Unit)? = null
     ): Job =

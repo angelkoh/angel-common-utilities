@@ -1,15 +1,14 @@
 @file:Suppress("unused", "MemberVisibilityCanBePrivate")
+
 package angelandroidapps.utils
 
 import android.animation.*
-import android.os.Build
 import android.view.View
 import android.view.ViewAnimationUtils
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.LinearInterpolator
 import android.view.animation.OvershootInterpolator
 import androidx.annotation.Keep
-import androidx.annotation.RequiresApi
 import androidx.core.animation.doOnCancel
 import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
@@ -166,7 +165,6 @@ object AnimUtils {
     }
 
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun circularReveal(
         view: View, duration: Long = 300,
         startX: Int = LEFT, startY: Int = TOP,
@@ -246,7 +244,7 @@ object AnimUtils {
                 .alpha(0f)
                 .translationY(-view.height.toFloat())
                 .setListener(object : AnimatorListenerAdapter() {
-                    override fun onAnimationEnd(animation: Animator?) {
+                    override fun onAnimationEnd(animation: Animator) {
                         view.visibility = View.GONE
                     }
                 })
@@ -260,7 +258,7 @@ object AnimUtils {
                 .alpha(0f)
                 .translationY(view.height.toFloat())
                 .setListener(object : AnimatorListenerAdapter() {
-                    override fun onAnimationEnd(animation: Animator?) {
+                    override fun onAnimationEnd(animation: Animator) {
                         view.visibility = View.GONE
                     }
                 })
@@ -302,7 +300,7 @@ object AnimUtils {
                 .alpha(0f)
                 .translationX(-view.height.toFloat())
                 .setListener(object : AnimatorListenerAdapter() {
-                    override fun onAnimationEnd(animation: Animator?) {
+                    override fun onAnimationEnd(animation: Animator) {
                         view.visibility = View.GONE
                     }
                 })
@@ -316,7 +314,7 @@ object AnimUtils {
                 .alpha(0f)
                 .translationX(view.width.toFloat())
                 .setListener(object : AnimatorListenerAdapter() {
-                    override fun onAnimationEnd(animation: Animator?) {
+                    override fun onAnimationEnd(animation: Animator) {
                         view.visibility = View.GONE
                     }
                 })
