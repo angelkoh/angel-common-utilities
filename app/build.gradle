@@ -6,7 +6,7 @@ plugins {
 
 //https://jitpack.io/docs/BUILDING/
 //https://github.com/jitpack/android-example
-def vers = '1.0.7-alpha02'
+def vers = '1.0.7-alpha03'
 
 android {
     compileSdkVersion 33
@@ -20,6 +20,7 @@ android {
         setProperty("archivesBaseName", "commonUtils-$versionName")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    namespace 'angelandroidapps.library'
 
     buildTypes {
         defaultConfig {
@@ -46,19 +47,26 @@ android {
     }
 }
 
-publishing {
-    publications {
-        release(MavenPublication) {
-            groupId = 'com.github.angelkoh'
-            artifactId = 'angel-common-utilities'
-            version = vers
 
-            afterEvaluate {
+//https://developer.android.com/studio/publish-library/upload-library
+//shows in <users>/.m2/repository/<groupId> when compile in gradlew -publishToMavenLocal
+
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
                 from components.release
+                groupId = 'com.github.angelkoh'
+                artifactId = 'angel-common-utilities'
+                version = vers
             }
         }
     }
 }
+
+
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
